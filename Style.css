@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    /* overflow: hidden; */ /* Remove this line */
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    color: white;
+  }
+
+#space {
+    position: absolute;
+    width: 100%;
+    height: 1500%;
+    animation: scroll 200s linear infinite;
+  }
+
+@keyframes scroll {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+ .star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+#name {
+    font-size: 8rem;
+    color: red;
+    font-weight: bold;
+    position: absolute;  /* added this line */
+    z-index: 100;
+    font-family: monospace;
+    top: 300px;
+}
+
+@keyframes blink {
+    0%, 20%, 50%, 80%, 100% {
+        opacity: 1;
+    }
+    40%, 70% {
+        opacity: 0;
+    }
+}
+
+#cursor {
+    display: inline-block;
+    width: 0.5rem; /* Adjust width if needed */
+    height: 8rem; /* Adjust height to match the font size */
+    background-color: red;
+    animation: blink 1s infinite;
+}
+
+.toolbar {
+    position: fixed; /* change absolute to fixed */
+    top: 20px;
+    right: 20px;
+    z-index: 101; /* To ensure it appears above other elements */
+    font-family: monospace;
+}
+
+
+/* ... existing styles ... */
+
+.toolbar-button {
+    background-color: white;
+    color: red;
+    border: none;
+    padding: 15px 30px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: background-color 0.3s, transform 0.3s; /* Added transform to transitions */
+    border-radius: 25px; /* This will make buttons rounder */
+    font-family: monospace;
+}
+
+.toolbar-button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05); /* This will slightly enlarge the button on hover */
+}
+
+.toolbar-button:active {
+    background-color: #ddd;
+    transform: scale(0.95); /* This will slightly shrink the button when clicked */
+}
+
+@media (max-width: 768px) { /* When the screen width is 768px or less */
+  #name {
+      font-size: 4rem;  /* Adjust this to fit the mobile screen */
+      top: 150px;       /* Adjust this to move the name closer to the center on mobile */
+  }
+
+  #cursor {
+      height: 4rem;     /* Adjust to match the new font size */
+  }
+
+  .toolbar-button {
+      font-size: 1rem; /* Adjust button font size for mobile */
+      padding: 10px 20px; /* Adjust button padding for mobile */
+  }
+
+  .toolbar {
+      right: 10px; /* Adjust spacing from the right for mobile */
+      top: 10px;   /* Adjust spacing from the top for mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  span {
+      top: 220px;  /* Adjust this to move the title below the name on mobile */
+      font-size: 30px; /* Adjust font size for mobile */
+  }
+}
